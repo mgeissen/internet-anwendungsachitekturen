@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bicinspector.js"></script>
 </head>
 <body>
     <h2>BIC Inspector</h2>
@@ -27,7 +28,7 @@
                     </div>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <input onclick="loadKontoDetails()" type="submit" value="Get BIC" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                    <input onclick="window.main.loadKontoDetails()" type="submit" value="Get BIC" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                 </div>
             </div>
         </div>
