@@ -1,7 +1,7 @@
 window.bicInspector = function () {
     "use strict";
 
-    var _resolveBicDetails = function (bankCode) {
+    var _resolveBicDetails = function (bankCode, callback) {
 
         var url = "https://fintechtoolbox.com/bankcodes/" + bankCode + ".json";
 
@@ -9,7 +9,7 @@ window.bicInspector = function () {
         request.open("GET",url, true);
         request.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200){
-                window.main.setData(JSON.parse(request.responseText));
+                callback(JSON.parse(request.responseText));
             }
         };
         request.send(null);
