@@ -1,7 +1,7 @@
 window.bicInspector = function () {
     "use strict";
 
-    var _resolveBicDetails = function (bankCode, callback) {
+    var _resolveBicDetails = function (bankCode, successCallback, failureCallback) {
 
         var url = "https://fintechtoolbox.com/bankcodes/" + bankCode + ".json";
 
@@ -9,7 +9,13 @@ window.bicInspector = function () {
         request.open("GET",url, true);
         request.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200){
-                callback(JSON.parse(request.responseText));
+                var data = JSON.parse(request.responseText);
+                if(data.msg === "Bankcode unknown"){
+                    failureCallback(bankCode)
+                } else{
+                    successCallback(data);
+                }
+
             }
         };
         request.send(null);
