@@ -11,7 +11,7 @@ window.bicInspector = function () {
             if(this.readyState === 4 && this.status === 200){
                 var data = JSON.parse(request.responseText);
                 if(data.msg === "Bankcode unknown"){
-                    failureCallback(bankCode)
+                    failureCallback(bankCode);
                 } else{
                     successCallback(data);
                 }
