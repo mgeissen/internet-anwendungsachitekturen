@@ -24,7 +24,8 @@ function login() {
 }
 
 function sendMessage() {
-    var message = document.getElementById("messageInput").value;
+    var elm = document.getElementById("messageInput")
+    var message = elm.value;
     var username = window.username;
 
     if(message === "" || username === ""){
@@ -32,7 +33,7 @@ function sendMessage() {
         return;
     }
     window.chatserver.sendMessage(username, message);
-
+    elm.value = "";
 }
 
 function setMessages() {
@@ -46,9 +47,18 @@ function setMessages() {
 
             var messages = window.messages;
             for(var i = 0; i < messages.length; i++){
+                var styleUser = "";
+                var styleDiv = "";
+                if(messages[i].user.username === window.username){
+                    styleUser = "display: none";
+                    styleDiv = "text-align: right";
+                }
                 contentMessages += window.utils.createHtml(html, {
                         username: messages[i].user.username,
-                        message: messages[i].message
+                        message: messages[i].message,
+                        styleUser: styleUser,
+                        styleMessage: "",
+                        styleDiv: styleDiv
                     });
             }
 
@@ -59,4 +69,21 @@ function setMessages() {
 }
 
 toggleLogin();
-setInterval(window.chatserver.getMessages, 5000);
+setInterval(window.chatserver.getMessages, 1000);
+
+document.getElementById("username")
+    .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("loginBtn").click();
+        }
+    });
+
+
+document.getElementById("messageInput")
+    .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("sendBtn").click();
+        }
+    });

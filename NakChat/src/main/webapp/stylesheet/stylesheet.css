@@ -1,0 +1,25 @@
+#chat{
+    max-width: 300px;
+}
+
+.user{
+    font-weight: bold;
+    font-size: 10px;
+    margin-bottom: -5px
+}
+
+.message{
+
+}
+
+.messageÎtem{
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(0, 212, 205, 0.38);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.standardMargin{
+    margin: 10px;
+}
