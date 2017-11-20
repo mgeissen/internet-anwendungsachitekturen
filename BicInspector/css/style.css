@@ -1,0 +1,8 @@
+.content{
+    margin: 20px;
+}
+
+.content > div{
+    margin-right: 5px;
+    float: left;
+}
