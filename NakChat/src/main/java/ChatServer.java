@@ -1,4 +1,5 @@
 import ressources.MessageRessource;
+import ressources.UserRessource;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -13,6 +14,7 @@ public class ChatServer extends Application {
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> classes = new HashSet<>();
         classes.add(MessageRessource.class);
+        classes.add(UserRessource.class);
         return classes;
     }
 

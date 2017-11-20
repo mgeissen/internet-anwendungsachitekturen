@@ -3,8 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Hallo</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="js/chatserver.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+
+    <style>
+        .standardMargin{
+            margin: 10px;
+        }
+    </style>
+
 </head>
 <body>
-    I bims eins nicenstein Nak Chat Webapp!
+
+<div class="standardMargin" id="login">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="username">
+        <label class="mdl-textfield__label" for="username">Username...</label>
+    </div>
+    <div>
+        <button onclick="login()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Login
+        </button>
+    </div>
+</div>
+<div class="standardMargin" id="chatroom">
+    <div id="chat">
+
+    </div>
+    <div class="sendMessage">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="messageInput">
+            <label class="mdl-textfield__label" for="messageInput">Nachricht...</label>
+        </div>
+        <div>
+            <button onclick="sendMessage()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Senden
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
