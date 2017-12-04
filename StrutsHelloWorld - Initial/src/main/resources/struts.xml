@@ -4,5 +4,14 @@
 		"http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<package name="default" extends="struts-default">
+        <action name="start">
+            <result>index.jsp</result>
+        </action>
+        <action name="party">
+            <result>party.jsp</result>
+        </action>
+        <action name="sayhello" class="de.nordakademie.iaa.helloworld.action.HelloAction" >
+			<result>helloworld.jsp</result>
+		</action>
 	</package>
 </struts>
