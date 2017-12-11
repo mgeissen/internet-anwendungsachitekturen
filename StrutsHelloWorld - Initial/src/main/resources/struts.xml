@@ -11,7 +11,8 @@
             <result>party.jsp</result>
         </action>
         <action name="sayhello" class="de.nordakademie.iaa.helloworld.action.HelloAction" >
-			<result>helloworld.jsp</result>
-		</action>
+            <result>helloworld.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
 	</package>
 </struts>

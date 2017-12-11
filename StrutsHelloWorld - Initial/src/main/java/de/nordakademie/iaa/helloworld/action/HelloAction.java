@@ -1,6 +1,14 @@
 package de.nordakademie.iaa.helloworld.action;
 
-public class HelloAction {
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HelloAction extends ActionSupport implements Preparable{
+
+    private Set<String> blackList = new HashSet<>();
 
     // input data
     private String name;
@@ -9,9 +17,10 @@ public class HelloAction {
     private String greeting;
 
     public String execute(){
-        greeting = String.format("Hello %s, how are you? ", name);
+        addActionMessage("OK cool!");
+        greeting = String.format(getText("action.helloworld.greeting"), name);
 
-        return "success";
+        return SUCCESS;
     }
 
     public String getName() {
@@ -28,5 +37,19 @@ public class HelloAction {
 
     public void setGreeting(String greeting) {
         this.greeting = greeting;
+    }
+
+    @Override
+    public void prepare() throws Exception {
+        blackList.add("Friedhelm");
+        blackList.add("Kornelius");
+    }
+
+    @Override
+    public void validate() {
+        if(blackList.contains(name)){
+            addActionError("Nicht cool!");
+            addFieldError("name", getText("message.error.blacklist"));
+        }
     }
 }
