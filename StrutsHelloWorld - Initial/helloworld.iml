@@ -15,6 +15,7 @@
           <fileset id="s2fileset" name="My Fileset " removed="false">
             <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5.5/struts2-core-2.5.5.jar!/struts-default.xml</file>
+            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-tiles-plugin/2.5.5/struts2-tiles-plugin-2.5.5.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -42,6 +43,24 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-commons:5.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.struts:struts2-tiles-plugin:2.5.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-api:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-core:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: commons-digester:commons-digester:2.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-servlet:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-request-api:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-request-servlet:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-jsp:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-template:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-freemarker:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-request-freemarker:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-ognl:3.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-el:3.0.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1" level="project" />
   </component>

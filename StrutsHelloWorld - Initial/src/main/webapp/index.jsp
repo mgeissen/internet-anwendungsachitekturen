@@ -1,12 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <%@taglib uri="/struts-tags" prefix="s" %>
-<html>
-<head>
-    <title><s:text name="header.application"/></title>
-</head>
-<body>
-<h1><s:text name="header.application"/></h1>
-<s:actionerror/>
+<%@taglib uri="/struts-tags" prefix="s" %>
+
 <s:form action="sayhello">
     <p><s:text name="header.paragraph.name"/></p>
     <s:textfield name="name" key="label.textfield.name" />
@@ -21,6 +14,3 @@
 <img src="ressources/parrotwave5.gif">
 <img src="ressources/parrotwave6.gif">
 <img src="ressources/parrotwave7.gif">
-
-</body>
-</html>

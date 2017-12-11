@@ -21,6 +21,11 @@
 			<artifactId>struts2-core</artifactId>
 			<version>2.5.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-tiles-plugin</artifactId>
+			<version>2.5.5</version>
+		</dependency>
 
 		<!-- Servlet & Jsp -->
 		<dependency>
@@ -33,7 +38,7 @@
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>2.3.1</version>
-			<scope>provided</scope>
+		<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
