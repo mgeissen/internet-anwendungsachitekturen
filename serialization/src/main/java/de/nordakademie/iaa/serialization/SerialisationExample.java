@@ -1,6 +1,5 @@
 package de.nordakademie.iaa.serialization;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -18,7 +17,7 @@ public class SerialisationExample {
                 .build();
 
         // save the book
-        try(ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("book.object"))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("book.object"))) {
             outputStream.writeObject(book);
         } catch (IOException e) {
             e.printStackTrace();
