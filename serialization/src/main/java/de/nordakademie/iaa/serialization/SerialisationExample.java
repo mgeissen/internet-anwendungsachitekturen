@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 public class SerialisationExample {
 
+    public static final String FILE_LOCATION = "book.object";
+
     public static void main(String[] args) {
         // create a book
         Book book = Book.Builder.aBook()
@@ -17,7 +19,7 @@ public class SerialisationExample {
                 .build();
 
         // save the book
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("book.object"))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(FILE_LOCATION))) {
             outputStream.writeObject(book);
         } catch (IOException e) {
             e.printStackTrace();
