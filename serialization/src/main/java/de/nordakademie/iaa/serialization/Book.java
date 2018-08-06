@@ -85,4 +85,14 @@ public class Book implements Serializable {
             return book;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", datePublished=" + datePublished +
+                ", isbn='" + isbn + '\'' +
+                '}';
+    }
 }

@@ -9,7 +9,7 @@ public class DeserializationExample {
     public static void main(String[] args) {
         try(ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(SerialisationExample.FILE_LOCATION))) {
             Book book = (Book) inputStream.readObject();
-            System.out.printf("Autor: %s%n", book.getAuthor());
+            System.out.println(book.toString());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
