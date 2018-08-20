@@ -1,11 +1,9 @@
 package de.nordakademie.iaa.hibernate;
 
-import com.oracle.tools.packager.Log;
 import de.nordakademie.iaa.hibernate.model.Room;
+import de.nordakademie.iaa.hibernate.persistence.RoomPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.persistence.EntityManager;
 
 public class Application {
 
@@ -15,9 +13,15 @@ public class Application {
         Long roomId = createRoom();
         LOG.info(String.format("Create room with id %d", roomId));
 
-        Room room = getRoom(roomId);
+        Room room = RoomPersistence.loadRoom(roomId);
 
         LOG.info(String.format("Load room with id %d and name %s%d", roomId, room.getBuilding(), room.getRoomNumber()));
+
+        RoomPersistence.updateRoom(room.getId(), 33, false);
+
+        Room newRoom = RoomPersistence.loadRoom(room.getId());
+
+        LOG.info(String.format("Room with seats %d and hasPresenter: %s", newRoom.getSeats(), newRoom.getHasPresenter()));
 
         HibernateUtil.getEntityManagerFactory()
                 .close();
@@ -31,23 +35,7 @@ public class Application {
                 .seats(20)
                 .build();
 
-        EntityManager entityManager = HibernateUtil.getEntityManagerFactory()
-                .createEntityManager();
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(room);
-        entityManager.getTransaction().commit();
-
-        entityManager.close();
-
-        return room.getId();
+        return RoomPersistence.saveRoom(room);
     }
 
-    private static Room getRoom(Long roomId) {
-
-        EntityManager entityManager = HibernateUtil.getEntityManagerFactory()
-                .createEntityManager();
-
-        return entityManager.find(Room.class, roomId);
-    }
 }
