@@ -26,6 +26,11 @@ public class RoomManagement {
 		actions.add(new CreateRoomAction());
 		actions.add(new UpdateRoomAction());
 		actions.add(new DeleteRoomAction());
+		actions.add(new ListCoursesAction());
+		actions.add(new ShowCourseAction());
+		actions.add(new CreateCourseAction());
+		actions.add(new UpdateCourseAction());
+		actions.add(new DeleteCourseAction());
 		actions.add(new ExitAction());
 
 		// configure the controller
