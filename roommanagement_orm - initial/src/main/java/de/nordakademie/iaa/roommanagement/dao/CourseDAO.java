@@ -11,18 +11,18 @@ import java.util.List;
 
 public class CourseDAO {
 
-    public static List<Course> listCourse() {
+    public List<Course> listCourse() {
         EntityManager entityManager = HibernateUtil.getCurrentEntityManager();
         List<Course> courses = entityManager.createQuery("from Course ").getResultList();
         return courses;
     }
 
-    public static Course showCourse(Long courseId) {
+    public Course showCourse(Long courseId) {
         EntityManager entityManager = HibernateUtil.getCurrentEntityManager();
         return entityManager.find(Course.class, courseId);
     }
 
-    public static Course createCourse(Course course) {
+    public Course createCourse(Course course) {
         try {
             HibernateUtil.getCurrentEntityManager().persist(course);
         } catch (ConstraintViolationException exception) {
@@ -31,7 +31,7 @@ public class CourseDAO {
         return course;
     }
 
-    public static void deleteCourse(Long courseId) {
+    public void deleteCourse(Long courseId) {
         Course course = showCourse(courseId);
         HibernateUtil.getCurrentEntityManager().remove(course);
     }

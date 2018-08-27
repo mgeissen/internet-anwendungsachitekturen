@@ -72,4 +72,15 @@ public class Room implements Serializable {
     public void setPresenterAvailable(boolean presenterAvailable) {
         this.presenterAvailable = presenterAvailable;
     }
+
+    @Override
+    public String toString() {
+        return "Raum{" +
+                "id=" + id +
+                ", Gebäude='" + building + '\'' +
+                ", Raum Nummer=" + roomNumber +
+                ", Anzahl sitze=" + seats +
+                ", Beamer vorhanden=" + presenterAvailable +
+                '}';
+    }
 }

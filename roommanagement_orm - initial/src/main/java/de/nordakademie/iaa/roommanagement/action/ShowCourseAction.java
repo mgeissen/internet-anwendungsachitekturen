@@ -1,6 +1,7 @@
 package de.nordakademie.iaa.roommanagement.action;
 
 import de.nordakademie.iaa.roommanagement.dao.CourseDAO;
+import de.nordakademie.iaa.roommanagement.dao.DAOFactory;
 import de.nordakademie.iaa.roommanagement.model.Course;
 import de.nordakademie.iaa.roommanagement.util.ConsoleUtil;
 import javafx.scene.chart.PieChart;
@@ -16,7 +17,7 @@ public class ShowCourseAction extends DatabaseAction {
         System.out.println("Welchen Kurs soll angezeigt werden?");
         long courseId = ConsoleUtil.readLong();
 
-        Course course = CourseDAO.showCourse(courseId);
+        Course course = DAOFactory.createCourseDAO().showCourse(courseId);
         System.out.println(course);
     }
 }
