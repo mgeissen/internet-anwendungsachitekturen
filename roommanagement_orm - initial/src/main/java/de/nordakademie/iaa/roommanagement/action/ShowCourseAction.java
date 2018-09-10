@@ -1,10 +1,8 @@
 package de.nordakademie.iaa.roommanagement.action;
 
-import de.nordakademie.iaa.roommanagement.dao.CourseDAO;
 import de.nordakademie.iaa.roommanagement.dao.DAOFactory;
 import de.nordakademie.iaa.roommanagement.model.Course;
 import de.nordakademie.iaa.roommanagement.util.ConsoleUtil;
-import javafx.scene.chart.PieChart;
 
 public class ShowCourseAction extends DatabaseAction {
     @Override
@@ -14,10 +12,14 @@ public class ShowCourseAction extends DatabaseAction {
 
     @Override
     public void execute() throws Exception {
-        System.out.println("Welchen Kurs soll angezeigt werden?");
-        long courseId = ConsoleUtil.readLong();
+        System.out.println("Wie heißt der Studiengang?");
+        String fieldOfStudy = ConsoleUtil.readString();
 
-        Course course = DAOFactory.createCourseDAO().showCourse(courseId);
-        System.out.println(course);
+        System.out.println("Welche Nummer hat die Vorlesung?");
+        Integer roomNumber = ConsoleUtil.readInt();
+
+
+        Course course = DAOFactory.createCourseDAO().findByNaturalId(fieldOfStudy, roomNumber);
+        System.out.println(course == null ? "RAUM NICHT GEFUNDEN" : course);
     }
 }

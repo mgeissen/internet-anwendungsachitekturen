@@ -7,6 +7,7 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
 public class CourseDAO {
@@ -34,6 +35,20 @@ public class CourseDAO {
     public void deleteCourse(Long courseId) {
         Course course = showCourse(courseId);
         HibernateUtil.getCurrentEntityManager().remove(course);
+    }
+
+    public Course findByNaturalId(String fieldOfStudy, Integer number) {
+        Query query = HibernateUtil.getCurrentEntityManager().createQuery(
+                "select c from Course c where c.fieldOfStudy = :fieldOfStudy and c.number = :number");
+        query.setParameter("fieldOfStudy", fieldOfStudy);
+        query.setParameter("number", number);
+        List<Course> resultList = query.getResultList();
+
+        if (resultList.isEmpty()) {
+            return null;
+        } else {
+            return resultList.get(0);
+        }
     }
 
 }

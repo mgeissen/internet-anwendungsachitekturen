@@ -5,11 +5,19 @@ import java.util.List;
 
 import de.nordakademie.iaa.roommanagement.action.*;
 import de.nordakademie.iaa.roommanagement.util.ApplicationController;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Main class of the room management application.
  */
 public class RoomManagement {
+
+	private static ApplicationContext applicationContext;
+
+	public static ApplicationContext getApplicationContext() {
+		return applicationContext;
+	}
 
 	/**
 	 * Runs the application.
@@ -18,6 +26,9 @@ public class RoomManagement {
 	 *            Arguments (not supported).
 	 */
 	public static void main(String[] args) {
+		// init spring
+		applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
+
 		ApplicationController controller = new ApplicationController();
 		// Create list of actions
 		List<Action> actions = new ArrayList<Action>();
