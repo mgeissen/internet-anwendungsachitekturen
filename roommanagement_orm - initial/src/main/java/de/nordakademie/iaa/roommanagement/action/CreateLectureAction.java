@@ -48,6 +48,11 @@ public class CreateLectureAction extends DatabaseAction {
                 .build();
 
         lecture = getLectureService().createLecture(lecture);
-        System.out.printf("Veranstaltung mit Id %d ist erfolgreich angelegt.%n", lecture.getId());
+        if(lecture == null) {
+            System.out.println("Lecture kollidiert mit einer anderen Veranstaltung in dem Raum");
+        } else {
+            System.out.printf("Veranstaltung mit Id %d ist erfolgreich angelegt.%n", lecture.getId());
+        }
+
     }
 }

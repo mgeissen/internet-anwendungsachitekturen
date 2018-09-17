@@ -10,8 +10,18 @@ public class LectureService {
 
     private LectureDAO lectureDAO;
 
-
     public Lecture createLecture(Lecture lecture) {
+        List<Lecture> lectures = lectureDAO.listLectures();
+
+        long countLectureAtSameTime = lectures.stream()
+                .filter(aLecture -> aLecture.getRoom().getId().equals(lecture.getRoom().getId()))
+                .filter(aLecture -> aLecture.getEndDate().after(lecture.getStartDate()))
+                .filter(aLecture -> aLecture.getStartDate().before(lecture.getEndDate()))
+                .count();
+
+        if(countLectureAtSameTime > 0) {
+            return null;
+        }
         return lectureDAO.createLecture(lecture);
     }
 

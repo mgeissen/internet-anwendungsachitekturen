@@ -34,11 +34,7 @@ public class ApplicationController {
             menuController.printMenu();
             // Read user input
             Action action = menuController.readMenuChoice();
-            if (action instanceof DatabaseAction) {
-                executeDatabaseAction(action);
-            } else {
-                executeAction(action);
-            }
+            executeAction(action);
         }
     }
 
@@ -48,26 +44,6 @@ public class ApplicationController {
         } catch (Exception exception) {
             LOG.error("Fehler aufgetreten: "
                     + exception.getMessage());
-        }
-    }
-
-    private void executeDatabaseAction(Action action) {
-        // EntityManager and TX support required
-        HibernateUtil.createEntityManager();
-        HibernateUtil.getCurrentEntityManager().getTransaction().begin();
-
-        try {
-            action.execute();
-            HibernateUtil.getCurrentEntityManager().getTransaction().commit();
-        } catch (Exception exception) {
-            if (HibernateUtil.getCurrentEntityManager().getTransaction().isActive()) {
-                HibernateUtil.getCurrentEntityManager().getTransaction().rollback();
-            }
-            LOG.error("Fehler aufgetreten: "
-                    + exception.getMessage());
-        } finally {
-            // close entity manager no matter what result we got
-            HibernateUtil.closeCurrentEntityManager();
         }
     }
 

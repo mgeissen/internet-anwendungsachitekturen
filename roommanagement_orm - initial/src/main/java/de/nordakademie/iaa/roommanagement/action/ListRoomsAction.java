@@ -23,8 +23,7 @@ public class ListRoomsAction extends DatabaseAction {
      */
     @Override
     public void execute() throws Exception {
-        RoomDAO roomDAO = getRoomService();
-        List<Room> rooms = roomDAO.listRooms();
+        List<Room> rooms = getRoomService().listRooms();
         for (Room room : rooms) {
             System.out.printf("Raum mit ID %1$d:%n", room.getId());
             System.out

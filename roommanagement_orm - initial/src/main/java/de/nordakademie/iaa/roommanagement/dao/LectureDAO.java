@@ -1,7 +1,6 @@
 package de.nordakademie.iaa.roommanagement.dao;
 
 import de.nordakademie.iaa.roommanagement.model.Lecture;
-import de.nordakademie.iaa.roommanagement.util.HibernateUtil;
 import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.EntityManager;

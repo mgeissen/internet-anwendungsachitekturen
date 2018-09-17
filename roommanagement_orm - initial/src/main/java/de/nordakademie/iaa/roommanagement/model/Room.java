@@ -4,6 +4,7 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * The room entity.
@@ -83,4 +84,17 @@ public class Room implements Serializable {
                 ", Beamer vorhanden=" + presenterAvailable +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return roomNumber == room.roomNumber &&
+                seats == room.seats &&
+                presenterAvailable == room.presenterAvailable &&
+                Objects.equals(id, room.id) &&
+                Objects.equals(building, room.building);
+    }
+
 }

@@ -64,4 +64,9 @@
     <bean id="lectureDAO" class="de.nordakademie.iaa.roommanagement.dao.LectureDAO"/>
     <bean id="courseDAO" class="de.nordakademie.iaa.roommanagement.dao.CourseDAO"/>
 
+    <!-- Service -->
+    <bean id="lectureService" class="de.nordakademie.iaa.roommanagement.service.LectureService"/>
+    <bean id="roomService" class="de.nordakademie.iaa.roommanagement.service.RoomService"/>
+    <bean id="courseService" class="de.nordakademie.iaa.roommanagement.service.CourseService"/>
+
 </beans>

@@ -1,7 +1,5 @@
 package de.nordakademie.iaa.roommanagement.action;
 
-import de.nordakademie.iaa.roommanagement.util.HibernateUtil;
-
 public class ExitAction extends Action {
 
     /**
@@ -17,7 +15,6 @@ public class ExitAction extends Action {
      */
     @Override
     public void execute() throws Exception {
-        HibernateUtil.shutdownJPA();
         System.out.println("Raumverwaltung beendet!");
         System.exit(0);
     }
