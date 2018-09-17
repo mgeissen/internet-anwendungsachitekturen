@@ -4,13 +4,18 @@ import de.nordakademie.iaa.roommanagement.util.HibernateUtil;
 import de.nordakademie.iaa.roommanagement.model.Room;
 import org.hibernate.exception.ConstraintViolationException;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
  * The room dao that manages data access.
  */
 public class RoomDAO {
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	/**
 	 * List all rooms currently stored in the database.
@@ -20,7 +25,6 @@ public class RoomDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Room> listRooms() {
-		EntityManager entityManager = HibernateUtil.getCurrentEntityManager();
 		List<Room> rooms = entityManager.createQuery("from Room").getResultList();
 		return rooms;
 	}
@@ -35,7 +39,7 @@ public class RoomDAO {
 	 */
 	public Room saveRoom(Room room) {
 		try {
-            HibernateUtil.getCurrentEntityManager().persist(room);
+            entityManager.persist(room);
 		} catch (ConstraintViolationException exception) {
 			throw new RoomAlreadyExistsException();
 		}
@@ -53,7 +57,7 @@ public class RoomDAO {
 	 */
 	public Room loadRoom(Long roomId) {
 		// get session
-		Room room = (Room) HibernateUtil.getCurrentEntityManager().find(Room.class, roomId);
+		Room room = entityManager.find(Room.class, roomId);
 		if (room == null) {
 			throw new RoomNotFoundException();
 		}
@@ -70,6 +74,6 @@ public class RoomDAO {
 	 */
 	public void deleteRoom(Long roomId) {
 		Room room = loadRoom(roomId);
-        HibernateUtil.getCurrentEntityManager().remove(room);
+        entityManager.remove(room);
 	}
 }

@@ -23,7 +23,7 @@ public class DeleteRoomAction extends DatabaseAction {
     public void execute() throws Exception {
         System.out.println("Geben Sie die Raum ID an!");
         long roomId = ConsoleUtil.readLong();
-        getRoomDAO().deleteRoom(roomId);
+        getRoomService().deleteRoom(roomId);
         System.out.printf("Der Raum mit der ID %1$d wurde gelöscht!%n", roomId);
     }
 

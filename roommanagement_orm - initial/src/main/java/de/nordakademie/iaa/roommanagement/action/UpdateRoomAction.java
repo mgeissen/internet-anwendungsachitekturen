@@ -29,7 +29,7 @@ public class UpdateRoomAction extends DatabaseAction {
         boolean beamer = ConsoleUtil.readBoolean();
 
         // update and save room
-        Room room = getRoomDAO().loadRoom(roomId);
+        Room room = getRoomService().loadRoom(roomId);
         room.setSeats(seats);
         room.setPresenterAvailable(beamer);
 

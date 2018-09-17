@@ -1,10 +1,7 @@
 package de.nordakademie.iaa.roommanagement.action;
 
-import de.nordakademie.iaa.roommanagement.dao.CourseDAO;
-import de.nordakademie.iaa.roommanagement.dao.DAOFactory;
 import de.nordakademie.iaa.roommanagement.model.Course;
 import de.nordakademie.iaa.roommanagement.util.ConsoleUtil;
-import sun.print.CUPSPrinter;
 
 public class CreateCourseAction extends DatabaseAction {
 
@@ -34,7 +31,7 @@ public class CreateCourseAction extends DatabaseAction {
                 .withTitle(title)
                 .build();
 
-        course = DAOFactory.createCourseDAO().createCourse(course);
+        course = getCourseService().createCourse(course);
 
         System.out.printf("Der Course mit der ID %d wurde angelegt.%n", course.getId());
     }

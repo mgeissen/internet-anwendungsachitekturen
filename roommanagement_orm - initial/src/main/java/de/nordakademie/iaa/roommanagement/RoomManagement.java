@@ -31,7 +31,7 @@ public class RoomManagement {
 
 		ApplicationController controller = new ApplicationController();
 		// Create list of actions
-		List<Action> actions = new ArrayList<Action>();
+		List<Action> actions = new ArrayList<>();
 		actions.add(new ListRoomsAction());
 		actions.add(new ShowRoomAction());
 		actions.add(new CreateRoomAction());

@@ -1,9 +1,13 @@
 package de.nordakademie.iaa.roommanagement.action;
 
+import de.nordakademie.iaa.roommanagement.RoomManagement;
 import de.nordakademie.iaa.roommanagement.dao.CourseDAO;
-import de.nordakademie.iaa.roommanagement.dao.DAOFactory;
 import de.nordakademie.iaa.roommanagement.dao.LectureDAO;
 import de.nordakademie.iaa.roommanagement.dao.RoomDAO;
+import de.nordakademie.iaa.roommanagement.model.Room;
+import de.nordakademie.iaa.roommanagement.service.CourseService;
+import de.nordakademie.iaa.roommanagement.service.LectureService;
+import de.nordakademie.iaa.roommanagement.service.RoomService;
 
 /**
  * Action that is provided with a transaction.
@@ -15,13 +19,13 @@ public abstract class DatabaseAction extends Action {
      *
      * @return an instance of the service.
      */
-    public RoomDAO getRoomDAO() {
-        return DAOFactory.createRoomDAO();
+    public RoomService getRoomService() {
+        return RoomManagement.getApplicationContext().getBean(RoomService.class);
     }
-    public CourseDAO getCourseDAO() {
-        return DAOFactory.createCourseDAO();
+    public CourseService getCourseService() {
+        return RoomManagement.getApplicationContext().getBean(CourseService.class);
     }
-    public LectureDAO getLectureDAO() {
-        return DAOFactory.createLectureDAO();
+    public LectureService getLectureService() {
+        return RoomManagement.getApplicationContext().getBean(LectureService.class);
     }
 }

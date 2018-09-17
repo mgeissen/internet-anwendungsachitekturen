@@ -1,6 +1,5 @@
 package de.nordakademie.iaa.roommanagement.action;
 
-import de.nordakademie.iaa.roommanagement.dao.DAOFactory;
 import de.nordakademie.iaa.roommanagement.model.Course;
 import de.nordakademie.iaa.roommanagement.util.ConsoleUtil;
 
@@ -19,7 +18,7 @@ public class ShowCourseAction extends DatabaseAction {
         Integer roomNumber = ConsoleUtil.readInt();
 
 
-        Course course = DAOFactory.createCourseDAO().findByNaturalId(fieldOfStudy, roomNumber);
+        Course course = getCourseService().findByNaturalId(fieldOfStudy, roomNumber);
         System.out.println(course == null ? "RAUM NICHT GEFUNDEN" : course);
     }
 }

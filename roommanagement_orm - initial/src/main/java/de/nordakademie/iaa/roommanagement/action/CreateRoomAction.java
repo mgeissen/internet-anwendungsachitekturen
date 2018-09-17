@@ -36,7 +36,7 @@ public class CreateRoomAction extends DatabaseAction {
         room.setRoomNumber(roomNumber);
         room.setSeats(seats);
         room.setPresenterAvailable(beamer);
-        room = getRoomDAO().saveRoom(room);
+        room = getRoomService().saveRoom(room);
         System.out.printf("Der Raum wurde mit der ID %1$d angelegt!%n",
                 room.getId());
     }

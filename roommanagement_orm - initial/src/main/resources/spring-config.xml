@@ -51,10 +51,17 @@
     <aop:config>
         <aop:pointcut id="daoMethods"
                       expression="execution(* de.nordakademie.iaa.roommanagement.dao..*.*(..))"/>
+        <aop:pointcut id="serviceMethode"
+                      expression="execution(* de.nordakademie.iaa.roommanagement.service..*.*(..))"/>
     </aop:config>
 
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="daoMethods"/>
     </aop:config>
+
+    <!-- DAOS -->
+    <bean id="roomDAO" class="de.nordakademie.iaa.roommanagement.dao.RoomDAO"/>
+    <bean id="lectureDAO" class="de.nordakademie.iaa.roommanagement.dao.LectureDAO"/>
+    <bean id="courseDAO" class="de.nordakademie.iaa.roommanagement.dao.CourseDAO"/>
 
 </beans>

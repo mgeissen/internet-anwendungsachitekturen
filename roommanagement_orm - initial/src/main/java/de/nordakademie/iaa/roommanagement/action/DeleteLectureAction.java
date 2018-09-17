@@ -12,7 +12,7 @@ public class DeleteLectureAction extends DatabaseAction {
     public void execute() throws Exception {
         System.out.println("Geben Sie die Veranstaltungs ID an!");
         long lectureId = ConsoleUtil.readLong();
-        getLectureDAO().deleteLecture(lectureId);
+        getLectureService().deleteLecture(lectureId);
         System.out.printf("Die Veranstaltung mit der ID %1$d wurde gelöscht!", lectureId);
     }
 }

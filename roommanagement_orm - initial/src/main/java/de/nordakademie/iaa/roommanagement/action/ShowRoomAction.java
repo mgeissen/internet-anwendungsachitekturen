@@ -23,7 +23,7 @@ public class ShowRoomAction extends DatabaseAction {
     public void execute() throws Exception {
         System.out.println("Geben Sie die Raum ID an!");
         long roomId = ConsoleUtil.readLong();
-        Room room = getRoomDAO().loadRoom(roomId);
+        Room room = getRoomService().loadRoom(roomId);
         System.out.printf("Raum mit ID %1$d:%n", room.getId());
         System.out
                 .printf(" - Gebäude: %1$s, Raumnummer: %2$d, Plätze: %3$d, Beamer [%4$b]%n",
